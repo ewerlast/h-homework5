@@ -1,16 +1,44 @@
-/*const a = [1,2,3,4];
+let a = [1,5, 5];
 
-function callBack(value,angry){
-    return value + angry;  
+function returnArray(value) {
+    return value + 2;
 }
-let b = [];
-function map(data,callBack){
-    for (let index = 0; index < data.length; index++) {
-        b[index] = data[index];
-        callBack(b[index])
+function returnArrayMinus(value) {
+    return value - 2;
+}
+
+function map(data, callBack){
+    let er = [];
+    for(let i =0; i<data.length; i++){
+       er.push(callBack(data[i])); 
+      
     }
-    
+    return er
+} 
+
+
+ let g = map(a,returnArray);
+ let y = map(a,returnArrayMinus)
+
+console.log(g,y)
+
+
+
+function retutnFilter(value){
+    if(value === 5 ){
+        return value;
+    }else {
+        return false
+    }
 }
-map(a,callBack(2));*/
-
-
+function Filter(data,callBack){
+    let b =[];
+    for (let i = 0; i< data.length; i++){
+        if(callBack(data[i])){
+            b.push(callBack(data[i]));
+        }
+    }
+    return b;
+}
+ let m =  Filter(a,retutnFilter);
+ console.log(m);

@@ -1,152 +1,165 @@
-const a = [1, 4, 6, 3, -1, 5];
-function consoleCallBack(value) {
-    console.log(value);
-}
+let a = [1, 4, 6, 3, -1, 5];
+// n - переменнаяб которую мне так и не удалось передать как аргумент функции
+let n = -10;
 
-function forEach(data, callBack) {
-    for (let i = 0; i < data.length; i++) {
-        callBack(data[i]);
-    }
-}
-forEach(a, consoleCallBack);
+/**************** forEach*****************************/
+// function consoleCallBack(value) {
+//     console.log(value);
+// }
+
+// function forEach(data, callBack) {
+//     for (let i = 0; i < data.length; i++) {
+//         callBack(data[i]);
+//     }
+// }
+// forEach(a, consoleCallBack);
+
 // *************** MAP ***********************************
-let n = 2
-
-function returnCallBackPlus(value) {
-    return value + n;
-}
-function returnCallBackMinus(value) {
-    return value - n;
-}
-function returnCallBackMultiply(value) {
-    return value * n;
-}
-function returnCallBackShare(value) {
-    return value / n;
-}
-//И так далее..
 
 
+// function mapRerurnPlus(value){
+//     return value + n;
+// }
 
-const b = [];
-function map(data, callBack) {
-    for (let i = 0; i < data.length; i++) {
-        b[i] = callBack(data[i]);
-    }
+// function mapRerurnMinus(value){
+//     return value - n;
+// }
+// function mapRerurnShere(value){
+//     return value / n;
+// }
+// function mapRerurnPower(value){
+//     return value ** n;
+// }
 
-}
+// function map(data,callBack){
+//     let b = [];
+//     for(let i = 0; i < data.length; i++){
+//         b.push(callBack(data[i]));
+//     }
+//     return b;
+// }
 
-map(a, returnCallBackPlus);
-console.log(b);
-map(a, returnCallBackMinus)
-console.log(b);
-map(a, returnCallBackMultiply)
-console.log(b);
-map(a, returnCallBackShare)
-console.log(b);
+// let arr1 = map(a,mapRerurnPower);
+// let arr2 = map(a,mapRerurnShere);
+// console.log(arr1,arr2);
 
-//*************FILTER ********************/
-let c = [];
-let filterСomparison = 3;
-function filterMore(value) {
-    if (value >= filterСomparison) {
-        return value;
-    }
-    if (value < filterСomparison) {
+/********************Filter ********************/
+
+// function filterMin(value){
+//     if(value < n){
+//         return value;
+//     }else{
+//         return false;
+//     }
+// }
+// function filterMax(value){
+//     if(value > n){
+//         return value;
+//     }else{
+//         return false;
+//     }
+// }
+// function filterEqually(value){
+//     if(value == n){
+//         return value;
+//     }else{
+//         return false;
+//     }
+// }
+
+// function filter(data,callBack){
+//     let b= [];
+//     for(let i = 0; i < data.length; i++){
+//         if(callBack([data[i]])){
+//             b.push(callBack(data[i]));
+//         }
+//     }
+//     return b;
+// }
+
+// let arr3 = filter(a,filterMax);
+// arr4 = filter(a,filterEqually);
+// console.log(arr3,arr4);
+
+
+/**************************Some***********/
+
+function returnSomeMax(value) {
+    if (value > n) {
+        return true;
+    } else {
         return false;
     }
-
 }
-function filterLess(value) {
-    if (value <= filterСomparison) {
-        return value;
-    }
-    if (value > filterСomparison) {
+function returnSomeMin(value) {
+    if (value < n) {
+        return true;
+    } else {
         return false;
     }
-
-
 }
-function filterEqually(value) {
-    if (value === filterСomparison) {
-        return value;
-    }
-    if (value !== filterСomparison) {
+function returnSomeEqually(value) {
+    if (value == n) {
+        return true;
+    } else {
         return false;
     }
-
-}
-
-function filter(data, callBack) {
-    for (let i = 0; i < data.length; i++) {
-        c[i] = callBack(data[i]);
-    }
-
-}
-
-filter(a, filterMore)
-console.log(c);
-filter(a, filterLess)
-console.log(c);
-filter(a, filterEqually)
-console.log(c);
-
-
-/*********** every **********/
-let startEvery = -10;
-function everuCallBackEqually(value) {
-    if (value === startEvery) {
-        return "true"
-    } else {
-        return "false"
-    }
-}
-function everuCallBackMore(value) {
-    if (value > startEvery) {
-        return "true"
-    } else {
-        return "false"
-    }
-}
-function everuCallBackLess(value) {
-    if (value < startEvery) {
-        return "true"
-    } else {
-        return "false"
-    }
-}
-
-let resultEvery;
-function every(data, callBack) {
-    for (let i = 0; i < data.length; i++) {
-        resultEvery = callBack(data[i]);
-
-    }
-
-}
-every(a, everuCallBackMore);
-console.log(resultEvery)
-
-/* ******************SOME************/
-
-let resultSome;
-let startSome = 4;
-function someCallBackEqually(value) {
-   if (value !== startSome){
-       continue;
-   }
-   if(value ===startSome){
-       return true;
-   }
 }
 
 
 function some(data, callBack) {
+    let resultSome ;
     for (let i = 0; i < data.length; i++) {
-        resultSome = callBack(data[i]);
+        if(callBack(data[i])){
+            resultSome = true;
+        }else{
+            resultSome = false;
+        }
+    }
+    return resultSome;
+}
+
+
+
+let u = some(a, returnSomeMin);
+console.log(u)
+
+
+/********************every********** */
+
+function returnEveryMax(value){
+    if(value > n){
+        return true;
+    }else{
+        return false;
+    }
+}
+function returnEveryMin(value){
+    if(value < n){
+        return true;
+    }else{
+        return false;
+    }
+}
+function returnEveryEqually(value){
+    if(value === n){
+        return true;
+    }else{
+        return false;
+    }
+}
+function every(data,callBack){
+    let resultEvery;
+    for(let i = 0; i< data.length; i++){
+        if((callBack(data[i]===false))){
+            resultSome = false;
+        
+        }else{
+            resultSome = true;
+        }
 
     }
-
+    return resultEvery;
 }
-some(a, someCallBackEqually);
-console.log(resultSome);
+console.log(some(a,returnEveryEqually));
+
