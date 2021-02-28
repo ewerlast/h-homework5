@@ -3,83 +3,83 @@ let a = [1, 4, 6, 3, -1, 5];
 let n = -10;
 
 /**************** forEach*****************************/
-// function consoleCallBack(value) {
-//     console.log(value);
-// }
+function consoleCallBack(value) {
+    console.log(value);
+}
 
-// function forEach(data, callBack) {
-//     for (let i = 0; i < data.length; i++) {
-//         callBack(data[i]);
-//     }
-// }
-// forEach(a, consoleCallBack);
+function forEach(data, callBack) {
+    for (let i = 0; i < data.length; i++) {
+        callBack(data[i]);
+    }
+}
+forEach(a, consoleCallBack);
 
 // *************** MAP ***********************************
 
 
-// function mapRerurnPlus(value){
-//     return value + n;
-// }
+function mapRerurnPlus(value){
+    return value + n;
+}
 
-// function mapRerurnMinus(value){
-//     return value - n;
-// }
-// function mapRerurnShere(value){
-//     return value / n;
-// }
-// function mapRerurnPower(value){
-//     return value ** n;
-// }
+function mapRerurnMinus(value){
+    return value - n;
+}
+function mapRerurnShere(value){
+    return value / n;
+}
+function mapRerurnPower(value){
+    return value ** n;
+}
 
-// function map(data,callBack){
-//     let b = [];
-//     for(let i = 0; i < data.length; i++){
-//         b.push(callBack(data[i]));
-//     }
-//     return b;
-// }
+function map(data,callBack){
+    let b = [];
+    for(let i = 0; i < data.length; i++){
+        b.push(callBack(data[i]));
+    }
+    return b;
+}
 
-// let arr1 = map(a,mapRerurnPower);
-// let arr2 = map(a,mapRerurnShere);
-// console.log(arr1,arr2);
+let arr1 = map(a,mapRerurnPower);
+let arr2 = map(a,mapRerurnShere);
+console.log(arr1,arr2);
 
 /********************Filter ********************/
 
-// function filterMin(value){
-//     if(value < n){
-//         return value;
-//     }else{
-//         return false;
-//     }
-// }
-// function filterMax(value){
-//     if(value > n){
-//         return value;
-//     }else{
-//         return false;
-//     }
-// }
-// function filterEqually(value){
-//     if(value == n){
-//         return value;
-//     }else{
-//         return false;
-//     }
-// }
+function filterMin(value){
+    if(value < n){
+        return value;
+    }else{
+        return false;
+    }
+}
+function filterMax(value){
+    if(value > n){
+        return value;
+    }else{
+        return false;
+    }
+}
+function filterEqually(value){
+    if(value == n){
+        return value;
+    }else{
+        return false;
+    }
+}
 
-// function filter(data,callBack){
-//     let b= [];
-//     for(let i = 0; i < data.length; i++){
-//         if(callBack([data[i]])){
-//             b.push(callBack(data[i]));
-//         }
-//     }
-//     return b;
-// }
+function filter(data,callBack){
+    let b= [];
+    for(let i = 0; i < data.length; i++){
+        if(callBack([data[i]])){
+            b.push(callBack(data[i]));
+        }
+    }
+    return b;
+}
 
-// let arr3 = filter(a,filterMax);
-// arr4 = filter(a,filterEqually);
-// console.log(arr3,arr4);
+let arr3 = filter(a,filterMax);
+arr4 = filter(a,filterEqually);
+console.log(arr3,arr4);
 
 
 /**************************Some***********/
