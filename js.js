@@ -1,12 +1,8 @@
 let a = [1, 4, 6, 3, -1, 5];
 // n - переменнаяб которую мне так и не удалось передать как аргумент функции
-let n = -10;
+let n = 3;
 
 /**************** forEach*****************************/
-function consoleCallBack(value) {
-    console.log(value);
-}
-
 function forEach(data, callBack) {
     for (let i = 0; i < data.length; i++) {
         callBack(data[i]);
@@ -14,72 +10,73 @@ function forEach(data, callBack) {
 }
 forEach(a, consoleCallBack);
 
+
 // *************** MAP ***********************************
 
 
-function mapRerurnPlus(value){
+function mapRerurnPlus(value) {
     return value + n;
 }
 
-function mapRerurnMinus(value){
+function mapRerurnMinus(value) {
     return value - n;
 }
-function mapRerurnShere(value){
+function mapRerurnShere(value) {
     return value / n;
 }
-function mapRerurnPower(value){
+function mapRerurnPower(value) {
     return value ** n;
 }
 
-function map(data,callBack){
+function map(data, callBack) {
     let b = [];
-    for(let i = 0; i < data.length; i++){
+    for (let i = 0; i < data.length; i++) {
         b.push(callBack(data[i]));
     }
     return b;
 }
 
-let arr1 = map(a,mapRerurnPower);
-let arr2 = map(a,mapRerurnShere);
-console.log(arr1,arr2);
+let arr1 = map(a, mapRerurnPower);
+let arr2 = map(a, mapRerurnShere);
+console.log(arr1, arr2);
 
 /********************Filter ********************/
 
-function filterMin(value){
-    if(value < n){
-        return value;
-    }else{
+function filterMin(value) {
+    if (value < n) {
+        return true;
+    } else {
         return false;
     }
 }
-function filterMax(value){
-    if(value > n){
-        return value;
-    }else{
+function filterMax(value) {
+    if (value > n) {
+        return true;
+    } else {
         return false;
     }
 }
-function filterEqually(value){
-    if(value == n){
-        return value;
-    }else{
+function filterEqually(value) {
+    if (value == n) {
+        return true;
+    } else {
         return false;
     }
 }
 
-function filter(data,callBack){
-    let b= [];
-    for(let i = 0; i < data.length; i++){
-        if(callBack([data[i]])){
-            b.push(callBack(data[i]));
+function filter(data, callBack) {
+    let b = [];
+    for (let i = 0; i < data.length; i++) {
+        if (callBack([data[i]])) {
+            b.push(data[i]);
         }
     }
     return b;
 }
 
-let arr3 = filter(a,filterMax);
-arr4 = filter(a,filterEqually);
-console.log(arr3,arr4);
+let arr3 = filter(a, filterMax);
+let arr4 = filter(a, filterEqually);
+console.log(arr3, arr4);
 
 
 /**************************Some***********/
@@ -108,15 +105,15 @@ function returnSomeEqually(value) {
 
 
 function some(data, callBack) {
-    let resultSome ;
+    let resultSome;
     for (let i = 0; i < data.length; i++) {
-        if(callBack(data[i])){
-            resultSome = true;
-        }else{
-            resultSome = false;
+        if (callBack(data[i])) {
+            return true;
+        } else {
+            return false;
         }
     }
-    return resultSome;
+
 }
 
 
@@ -127,39 +124,39 @@ console.log(u)
 
 /********************every********** */
 
-function returnEveryMax(value){
-    if(value > n){
+function returnEveryMax(value) {
+    if (value > n) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
-function returnEveryMin(value){
-    if(value < n){
+function returnEveryMin(value) {
+    if (value < n) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
-function returnEveryEqually(value){
-    if(value === n){
+function returnEveryEqually(value) {
+    if (value === n) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
-function every(data,callBack){
+function every(data, callBack) {
     let resultEvery;
-    for(let i = 0; i< data.length; i++){
-        if((callBack(data[i]===false))){
-            resultSome = false;
-        
-        }else{
-            resultSome = true;
+    for (let i = 0; i < data.length; i++) {
+        if ((callBack(data[i] === false))) {
+            return false
+
+        } else {
+            return true;
         }
 
     }
-    return resultEvery;
+
 }
-console.log(some(a,returnEveryEqually));
+console.log(some(a, returnEveryEqually));
 
